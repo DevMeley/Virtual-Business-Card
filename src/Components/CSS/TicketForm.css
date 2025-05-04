@@ -1,0 +1,50 @@
+.form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 500px;
+    border: 2px solid black;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 50px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.form-inputs{
+    display: flex;
+    flex-direction: column;
+}
+label span{
+    font-size: 18px;
+    font-weight: 400;
+    margin-right: 16px;
+}
+input{
+    padding: 8px;
+    width: 300px;
+}
+input[type=file]{
+    display: none;
+}
+.upload{
+    border: 1px solid gray;
+    padding: 20px;
+    height: 150px;
+    width: 150px;
+    border-radius: 150px;
+    text-align: center;
+}
+.upload span{
+    font-size: 12px;
+    padding-top: 50px
+}
+
+.form-btn button{
+    padding: 8px 40px;
+}

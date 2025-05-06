@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./CSS/TicketForm.css";
 
-function TickForm({formData, setFormData, setPreviewCard, handleFormSubmit}) {
+function Form({formData, setFormData, setPreviewCard, handleFormSubmit}) {
 
   const handlePhotoUpload = async (e) => {
     const file = e.target.files[0];
@@ -35,9 +35,9 @@ function TickForm({formData, setFormData, setPreviewCard, handleFormSubmit}) {
     <div>
       <div className="form-container">
         <h3>Provide your card information in the form below</h3>
-        {/* <form onSubmit={handleFormSubmit}> */}
           <label className="upload">
-            <span>Click to upload Profile Photo</span>
+            <span>Click to upload Photo</span>
+            {/* {formData.profilePhotoURL && <img src={URL.createObjectURL(formData.photo)} />}  */}
             <input type="file" onChange={handlePhotoUpload} />
           </label>
           <br />
@@ -134,10 +134,9 @@ function TickForm({formData, setFormData, setPreviewCard, handleFormSubmit}) {
           <div className="form-btn">
             <button>Preview</button>
           </div>
-        {/* </form> */}
       </div>
     </div>
   );
 }
 
-export default TickForm;
+export default Form;

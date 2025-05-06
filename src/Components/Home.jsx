@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import TickForm from "./TickForm";
+import Form from "./Form";
 import Preview from "./Preview";
 import "./CSS/Home.css";
 
 function Home() {
-  const [previewCard, setPreviewCard] = useState(false);
+  const [previewCard, setPreviewCard] = useState({});
   const [formData, setFormData] = useState({
     photo: "",
     displayName: "",
@@ -20,7 +20,7 @@ function Home() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-    // setPreviewCard(true);
+    setPreviewCard(formData);
     let clearForm = {
       photo: "",
       displayName: "",
@@ -39,7 +39,7 @@ function Home() {
     <div>
       <div className="home">
         <form onSubmit={handleFormSubmit}>
-          <TickForm
+          <Form
             formData={formData}
             setFormData={setFormData}
             callBackProp={handleFormSubmit}

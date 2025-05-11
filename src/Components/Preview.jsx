@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './CSS/previre.css';
 import html2canvas from 'html2canvas';
 import { FaPhoneAlt,  FaLinkedinIn } from "react-icons/fa"
@@ -6,8 +6,10 @@ import { FaLocationDot } from "react-icons/fa6"
 import { IoGlobeSharp } from "react-icons/io5"
 import { MdEmail } from "react-icons/md"
 import image from "../assets/download (1).png"
+import QRCode from './Qrcodee';
 
 function Preview({ formData}) {
+  const [viewQRcode, setViewQRcode] = useState(false)
   const downloadCard = async () => {
     try {
       const element = document.querySelector(".preview-container-wrapper");
@@ -28,6 +30,10 @@ function Preview({ formData}) {
       console.error("Error downloading PNG:", error);
     }
   };
+
+  const generateQRcode = async () => {
+    setViewQRcode(true)
+  }
 
   return (
     <div className='preview'>
@@ -57,8 +63,10 @@ function Preview({ formData}) {
       </div>
       <div className="preview-btns">
         <button className="download" onClick={downloadCard}>Download Card</button>
-        <button className='Generate-QR-code'>Generate QR-code</button>
+        <button className='Generate-QR-code' onClick={generateQRcode}>Generate QR-code</button>
       </div>
+      {viewQRcode? <QRCode /> : ""}
+      
     </div>
   );
 }

@@ -72,6 +72,9 @@
 .address{
     width: 200px;
 }
+.QR-code{
+    display: none;
+}
 /* .FaLinkedinIn, .mail{
     width: 50px;
 } */

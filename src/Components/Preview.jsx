@@ -5,6 +5,7 @@ import { FaPhoneAlt,  FaLinkedinIn } from "react-icons/fa"
 import { FaLocationDot } from "react-icons/fa6"
 import { IoGlobeSharp } from "react-icons/io5"
 import { MdEmail } from "react-icons/md"
+import image from "../assets/download (1).png"
 
 function Preview({ formData}) {
   const downloadCard = async () => {
@@ -50,7 +51,7 @@ function Preview({ formData}) {
             </div>
           </div>
           <div className="card-profile-photo">
-            <img src={formData.profilePhotoURL || "assets/download (1).png"} alt="profile photo" />
+            <img src={formData.profilePhotoURL || image} alt="profile photo" />
           </div>
         </div>
       </div>

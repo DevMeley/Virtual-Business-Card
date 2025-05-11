@@ -1,39 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "./Form";
 import Preview from "./Preview";
 import "./CSS/Home.css";
+import { setItem, getItem } from "../utils/LocalStorage";
 
 function Home() {
   const [previewCard, setPreviewCard] = useState({});
-  const [formData, setFormData] = useState({
-    photo: "",
-    displayName: "",
-    companyName: "",
-    role: "",
-    number: "",
-    address: "",
-    websiteURL: "",
-    linkedlnURL: "",
-    email: "",
+  const [formData, setFormData] = useState(()=>{
+    const item = getItem("Card Infos")
+    return (item) || {}
+   
   });
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-    setPreviewCard(formData);
-    let clearForm = {
-      photo: "",
-      displayName: "",
-      companyName: "",
-      role: "",
-      number: "",
-      address: "",
-      websiteURL: "",
-      linkedlnURL: "",
-      email: "",
-    };
-    setFormData(clearForm);
   };
+
+
+// Save data to localStorage
+useEffect(() => {
+  setItem("Card Infos", formData);
+}, [formData]);
+
 
   return (
     <div>

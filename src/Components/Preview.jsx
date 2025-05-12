@@ -72,7 +72,7 @@ function Preview({ formData}) {
               </div>
             </div>
             <div className="right-side">
-              <a href={formData.websiteURL}><QRCode value={formData.websiteURL} size={150}/></a>
+              {/* <a href={formData.websiteURL}><QRCode value={formData.websiteURL} size={150}/></a> */}
               <div className="socials">
                 <a  href={formData.linkedlnURL} className='linkedin'><FaLinkedinIn className='FaLinkedinIn'/></a>
                 <a href={formData.email} className='mail'><MdEmail className='MdEmail' /></a>

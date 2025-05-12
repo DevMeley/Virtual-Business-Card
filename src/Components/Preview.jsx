@@ -51,6 +51,13 @@ function Preview({ formData }) {
     }
   };
 
+  function ensureAbsoluteURL(url) {
+    if (!url) return ""; // Return an empty string if the URL is undefined or null
+    return url.startsWith("http://") || url.startsWith("https://")
+      ? url
+      : `http://${url}`;
+  }
+
   return (
     <div className="preview">
       <h3>Card Preview</h3>
@@ -83,11 +90,11 @@ function Preview({ formData }) {
             <div className="right-side">
               {formData?.websiteURL ? (
                 <a
-                  href={formData.websiteURL}
+                  href={ensureAbsoluteURL(formData.websiteURL)}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <QRCode value={formData.websiteURL} size={150} />
+                  <QRCode value={ensureAbsoluteURL(formData.websiteURL)} size={150} />
                 </a>
               ) : (
                 <QRCode value="No URL Provided" size={150} />
@@ -96,7 +103,7 @@ function Preview({ formData }) {
                 <a href={formData.linkedlnURL} className="linkedin">
                   <FaLinkedinIn className="FaLinkedinIn" />
                 </a>
-                <a href={formData.email} className="mail">
+                <a href={`mailto:${formData.email}`} className="mail">
                   <MdEmail className="MdEmail" />
                 </a>
               </div>

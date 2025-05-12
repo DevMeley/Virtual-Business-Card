@@ -81,11 +81,17 @@ function Preview({ formData }) {
               </div>
             </div>
             <div className="right-side">
-              <a href={formData?.websiteURL || "#"}>
-                  {formData?.websiteURL && (
-                    <QRCode value={formData.websiteURL} size={150} />
-                  )}
-              </a>
+              {formData?.websiteURL ? (
+                <a
+                  href={formData.websiteURL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <QRCode value={formData.websiteURL} size={150} />
+                </a>
+              ) : (
+                <QRCode value="No URL Provided" size={150} />
+              )}
               <div className="socials">
                 <a href={formData.linkedlnURL} className="linkedin">
                   <FaLinkedinIn className="FaLinkedinIn" />

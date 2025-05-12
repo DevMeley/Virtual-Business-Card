@@ -9,7 +9,7 @@
     background-color: white;
 }
 .preview{
-    margin-top: 200px;
+    margin-top: 100px;
     margin-right: 120px;
     display: flex;
     flex-direction: column;
@@ -17,8 +17,8 @@
 }
 .card-profile-photo img{
     border-radius: 200px;
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
     border: 3px solid #cccc ;
 }
 .preview-container-wrapper{
@@ -31,8 +31,14 @@
 }
 .card-into{
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     gap: 24px;
+}
+.right-side{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 .preview-btns{
     display: flex;
@@ -46,10 +52,15 @@
 .name-and-title{
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 16px;
 }
 .name-and-title h5{
     font-style: italic;
+}
+.socials{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 .socials a{
     width: 30px;
@@ -60,21 +71,35 @@
     flex-direction: column;
     gap: 8px;
 }
-.contact img{
-    width: 20px;
-    border-radius: 20px;
-}
+
 .contact p, .contact a{
     display: flex;
     align-items: center;
     gap: 10px;
+    font-size: 14px;
 }
-.address{
-    width: 200px;
+.address, .FaPhone{
+    color: white;
+    background-color: blue;
+    padding: 3px;
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
 }
-.QR-code{
-    display: none;
+
+.FaLinkedinIn{
+    color: white;
+    background-color: blue;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
 }
-/* .FaLinkedinIn, .mail{
-    width: 50px;
-} */
+.MdEmail{
+    color: white;
+    background-color: blue;
+    padding: 3px;
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+}

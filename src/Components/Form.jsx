@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./CSS/TicketForm.css";
+import { IoMdCloudUpload } from "react-icons/io"
 
 function Form({ formData, setFormData }) {
   const handlePhotoUpload = async (e) => {
@@ -35,15 +36,15 @@ function Form({ formData, setFormData }) {
       <div className="form-container">
         <h3>Provide your card information in the form below</h3>
         <label className="upload">
-          <span>Click to upload Photo</span>
-          <input type="file" onChange={handlePhotoUpload} />
+          <span> <IoMdCloudUpload />Click to upload image file</span>
+          <input type="file" placeholder="" onChange={handlePhotoUpload} />
         </label>
         <br />
         <div className="form-inputs">
           <label>
-            <span>Display Name</span>
             <input
               type="text"
+              placeholder="Display Name"
               value={formData.displayName}
               onChange={(e) =>
                 setFormData({ ...formData, displayName: e.target.value })
@@ -52,9 +53,9 @@ function Form({ formData, setFormData }) {
           </label>
           <br />
           <label>
-            <span>Company Name</span>
             <input
               type="text"
+              placeholder="Company Name"
               value={formData.companyName}
               onChange={(e) =>
                 setFormData({ ...formData, companyName: e.target.value })
@@ -63,9 +64,9 @@ function Form({ formData, setFormData }) {
           </label>
           <br />
           <label>
-            <span>Role</span>
             <input
               type="text"
+              placeholder="Role"
               value={formData.role}
               onChange={(e) =>
                 setFormData({ ...formData, role: e.target.value })
@@ -74,9 +75,9 @@ function Form({ formData, setFormData }) {
           </label>
           <br />
           <label>
-            <span>Contact Number</span>
             <input
               type="text"
+              placeholder="Contact Number"
               value={formData.number}
               onChange={(e) =>
                 setFormData({ ...formData, number: e.target.value })
@@ -85,9 +86,9 @@ function Form({ formData, setFormData }) {
           </label>
           <br />
           <label>
-            <span>Contact Address</span>
             <input
               type="text"
+              placeholder="Contact Address"
               value={formData.address}
               onChange={(e) =>
                 setFormData({ ...formData, address: e.target.value })
@@ -96,9 +97,9 @@ function Form({ formData, setFormData }) {
           </label>
           <br />
           <label>
-            <span>Website URL</span>
             <input
-              type="text"
+              type="url"
+              placeholder="Website URL"
               value={formData.websiteURL}
               onChange={(e) =>
                 setFormData({ ...formData, websiteURL: e.target.value })
@@ -107,9 +108,9 @@ function Form({ formData, setFormData }) {
           </label>
           <br />
           <label>
-            <span>Linkedln URL</span>
             <input
               type="text"
+              placeholder="Linkedln URL"
               value={formData.linkedlnURL}
               onChange={(e) =>
                 setFormData({ ...formData, linkedlnURL: e.target.value })
@@ -118,9 +119,9 @@ function Form({ formData, setFormData }) {
           </label>
           <br />
           <label>
-            <span>Email Address</span>
             <input
               type="text"
+              placeholder="Email Address"
               value={formData.email}
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })

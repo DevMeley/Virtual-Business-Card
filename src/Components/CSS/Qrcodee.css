@@ -1,0 +1,14 @@
+.download-QR-code{
+    padding: 8px 32px;
+}
+.Qr{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+/* .QR-code-container{
+    background-color: aqua;
+    padding: 50px;
+} */

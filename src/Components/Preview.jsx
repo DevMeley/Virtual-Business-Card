@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './CSS/previre.css';
 import html2canvas from 'html2canvas';
+import  html2pdf  from 'html2pdf.js';
 import { FaPhoneAlt,  FaLinkedinIn } from "react-icons/fa"
 import { FaLocationDot } from "react-icons/fa6"
 import { IoGlobeSharp } from "react-icons/io5"
@@ -10,7 +11,7 @@ import QRCode from 'react-qr-code';
 
 function Preview({ formData}) {
   const [viewQRcode, setViewQRcode] = useState(false)
-  const downloadCard = async () => {
+  const ExportAsPNG = async () => {
     try {
       const element = document.querySelector(".preview-container-wrapper");
       if (!element) {
@@ -31,9 +32,24 @@ function Preview({ formData}) {
     }
   };
 
-  const generateQRcode = async () => {
-    setViewQRcode(true)
-  }
+  const ExportAsPdf = async () => {
+   try {
+    const element = document.querySelector(".preview-container-wrapper");
+    element.style.display = 'block';
+   await html2pdf()
+     .set({
+       margin: 0,
+       filename: `${formData.displayName || "Business Card"}.pdf`,
+       image: { type: "jpeg", quality: 0.98 },
+       html2canvas: { scale: 3, useCORS: true },
+       jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
+     })
+     .from(element)
+     .save();
+   } catch (error) {
+    console.log(error)
+   }
+  };
 
   return (
     <div className='preview'>
@@ -66,8 +82,8 @@ function Preview({ formData}) {
         </div>
       </div>
       <div className="preview-btns">
-        <button className="download" onClick={downloadCard}>Download Card</button>
-        <button className='Generate-QR-code' onClick={generateQRcode}>Generate QR-code</button>
+        <button className='Generate-QR-code' onClick={ExportAsPdf}>Export as Pdf</button>
+        <button className="download" onClick={ExportAsPNG}>Export as PNG</button>
       </div>      
     </div>
   );
